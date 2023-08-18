@@ -1,7 +1,6 @@
 import { useContext  } from "react";
 import { QuizContext } from "../context/quiz";
 import Quiz from "../img/quiz.svg";
-
 import "./Welcome.css";
 
 const Welcome = () => {
@@ -15,7 +14,7 @@ const Welcome = () => {
       <img src={Quiz} alt="inicio do quiz" />
 
     </div>
-  )
-}
+  );
+};
 
 export default Welcome;
