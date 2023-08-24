@@ -1,47 +1,57 @@
 const data = [
   {
-    question: "Qual é o principal objetivo do React.js",
+    question: "O que JavaScript representa dentro de um navegador da web?",
     options: [
-      "Gerenciar bancos de dados",
-      "Manipular solicitações HTTP",
-      "Facilitar a criação de interfaces de usuário interativas",
-      "Automatizar tarefas de servidor",
+      "Estilo de página",
+      "Estrutura da página",
+      "Comportamento da página",
+      "Conteúdo da página",
     ],
-    answer: "Facilitar a criação de interfaces de usuário interativas",
+    answer: "Comportamento da página",
   },
 
   {
-    question: "Como os componentes são reutilizados no React.js?",
+    question: "Qual dos seguintes é um exemplo de um operador de atribuição em JavaScript?",
     options: [
-      "Através de consultas SQL",
-      "Por meio de funções matemáticas",
-      "Utilizando importações e composição de componentes",
-      "Incorporando-as diretamente no HTML",
+      "+",
+      "-",
+      "=",
+      "==",
     ],
-    answer: "Utilizando importações e composição de componentes",
+    answer: "=",
   },
 
   {
-    question:"Qual hook do React é usado para gerenciar o estado em componentes funcionais?",
+    question:"Qual método JavaScript é usado para adicionar um elemento a uma matriz?",
     options:[
-      "useState",
-      "useEffect",
-      "useStateEffect",
-      "stateManager",
+      "push()",
+      "append()",
+      "add()",
+      "insert()",
     ],
-    answer:"useState",
+    answer:"push()",
   },
 
   {
-    question:"O que é JSX no contexto do React.js?",
+    question:"O que o operador '===' faz em JavaScript?",
     options:[
-      "Uma linguagem de marcação utilizada para criar interfaces de usuário",
-      "Uma biblioteca de gerenciamento de estado",
-      "Uma abreviação de 'JavaScript XML'",
-      "Uma estrutura de controle de fluxo de programa",
+      "Compara valores para igualdade, ignorando o tipo",
+      "Compara valores e tipos para igualdade",
+      "Compara se um valor é maior que outro",
+      "Compara se um valor é menor que outro",
     ],
-    answer:"Uma abreviação de 'JavaScript XML'",
+    answer:"Compara valores e tipos para igualdade",
   },
+  {
+    question: "Qual palavra-chave é usada para declarar uma variável em JavaScript?",
+    options:[
+      "define",
+      "var",
+      "declare",
+      "assign"
+  ],
+  answer:"var"
+  }
 ];
 
 export default data;
