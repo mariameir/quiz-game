@@ -4,7 +4,8 @@ import questions from '../data/questions'
 const STAGES = ["Start", "Playing", "End"]
 const initialStage={
   gameStage: STAGES[0],
-  questions
+  questions,
+  currentQuestion:0,
 }
 
 const quizReducer = (state, action) => {
