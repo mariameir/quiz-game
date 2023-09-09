@@ -1,10 +1,10 @@
 import { createContext, useReducer } from "react";
-import questions from '../data/questions'
+import data from '../data/questions'
 
 const STAGES = ["Start", "Playing", "End"]
 const initialStage={
   gameStage: STAGES[0],
-  questions,
+  data,
   currentQuestion:0,
 }
 
@@ -16,7 +16,11 @@ const quizReducer = (state, action) => {
           return {
             ...state,
             gameStage: STAGES[1],
-          }
+          };
+
+          case"REORDER_QUESTIONS":
+          //const 45?:02
+          return state;
 
           default:
             return state;
