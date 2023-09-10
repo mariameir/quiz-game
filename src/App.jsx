@@ -1,4 +1,4 @@
-import './App.css';
+  import './App.css';
 import Welcome from "./components/Welcome";
 import {Question} from "./components/Question"
 import { useContext, useEffect } from 'react';
@@ -20,6 +20,6 @@ function App() {
       {quizState.gameStage === "Playing" && <Question />}
     </div>
   );
-}
+}ssdss
 
 export default App;
