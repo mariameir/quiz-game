@@ -20,6 +20,6 @@ function App() {
       {quizState.gameStage === "Playing" && <Question />}
     </div>
   );
-}ssdss
+}
 
 export default App;
