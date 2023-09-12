@@ -1,9 +1,11 @@
-import React from 'react'
+// eslint-disable-next-line no-unused-vars
 import { useContext } from 'react';
 import { QuizContext } from '../context/quiz';
 
+import './Question.css'
 
 export const Question = () => {
+  // eslint-disable-next-line no-unused-vars
   const [quizState, dispatch] = useContext(QuizContext);
   const currentQuestion = quizState.data[quizState.currentQuestion];
 
@@ -15,7 +17,7 @@ export const Question = () => {
       <div id="options-container">
         <p>Opções</p>
       </div>
-      <button>Continuar</button>
+      <button onClick={() => dispatch ({ type: "CHANGE_QUESTION"})} >Continuar</button>
     </div>
   )
 }

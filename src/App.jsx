@@ -1,17 +1,15 @@
-  import './App.css';
+import './App.css';
 import Welcome from "./components/Welcome";
-import {Question} from "./components/Question"
+import { Question } from "./components/Question";
 import { useContext, useEffect } from 'react';
 import { QuizContext } from './context/quiz';
 
 function App() {
-  const [quizState, dispatch] = useContext(QuizContext)
+  const [quizState, dispatch] = useContext(QuizContext);
 
   useEffect(() => {
-    dispatch({type: "REORDER_QUESTIONS"})
-    
-
-  }, [])
+    dispatch({ type: "REORDER_QUESTIONS" });
+  }, [dispatch]); // Adicione [dispatch] como dependência
 
   return (
     <div className='App'>
