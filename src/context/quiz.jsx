@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import data from '../data/questions';
+import data from "../data/questions";
 
 const STAGES = ["Start", "Playing", "End"];
 const initialStage = {
@@ -18,23 +18,30 @@ const quizReducer = (state, action) => {
         gameStage: STAGES[1],
       };
 
-    case "REORDER_QUESTIONS":
-      // eslint-disable-next-line no-case-declarations
-      const reorderedQuestions = data.sort(() => {
-        return Math.random() - 0.5;
+      case "REORDER_QUESTIONS":
+        // eslint-disable-next-line no-case-declarations
+        const reorderedQuestions = state.data.sort(() => {
+          return Math.random() - 0.5;
       });
       return {
         ...state,
         data: reorderedQuestions, 
       };
 
-      case "CHANGE_QUESTION":
-        // eslint-disable-next-line no-case-declarations
-        const nextQuestion = state.currentQuestion + 1;
+      case "CHANGE_QUESTION": {
+        const nexQuestion = state.currentQuestion + 1;
+        let endGame = false;
+  
+        if (!state.data[nexQuestion]) {
+          endGame = true;
+        }
+  
+  
         return{
           ...state,
-          currentQuestion: nextQuestion, 
-        }
+          currentQuestion: nexQuestion, 
+          gameStage: endGame ? STAGES[2] : state.gameStage,
+        }}
 
 
     default:
