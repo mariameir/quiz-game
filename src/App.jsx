@@ -1,19 +1,19 @@
-import './App.css';
+import "./App.css";
 import Welcome from "./components/Welcome";
 import { Question } from "./components/Question";
-import { useContext, useEffect } from 'react';
-import { QuizContext } from './context/quiz';
-import GameOver from './components/GameOver';
+import { useContext, useEffect } from "react";
+import { QuizContext } from "./context/quiz";
+import GameOver from "./components/GameOver";
 
 function App() {
   const [quizState, dispatch] = useContext(QuizContext);
 
   useEffect(() => {
     dispatch({ type: "REORDER_QUESTIONS" });
-  }, [dispatch]); // Adicione [dispatch] como dependência
+  }, [dispatch]);
 
   return (
-    <div className='App'>
+    <div className="App">
       <h1>Quiz Game</h1>
       {quizState.gameStage === "Start" && <Welcome />}
       {quizState.gameStage === "Playing" && <Question />}
