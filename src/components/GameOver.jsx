@@ -7,10 +7,12 @@ import WellDone from "../img/welldone.svg";
 
 
 const GameOver = () => {
+  const [quizState, dispatch] = useContext(QuizContext);
+
   return (
     <div id="gameover">
       <h2>Fim de Jogo</h2>
-      <p>Pontuação:x </p>
+      <p>Pontuação:{quizState.score} </p>
       <p>Você acertou x de y perguntas </p>
       <img src={WellDone} alt="" />
       <button>Reiniciar</button>
