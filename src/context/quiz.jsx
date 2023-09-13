@@ -36,13 +36,15 @@ const quizReducer = (state, action) => {
         if (!state.data[nexQuestion]) {
           endGame = true;
         }
-  
-  
+
         return{
           ...state,
           currentQuestion: nexQuestion, 
           gameStage: endGame ? STAGES[2] : state.gameStage,
-        }}
+        }};
+
+      case  "NEW_GAME":
+        return initialStage;
 
 
     default:

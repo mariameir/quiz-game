@@ -16,3 +16,7 @@
 #welcome img {
   margin-top: 2rem;
 }
+
+#welcome button{
+  border: solid 1px white;
+}
