@@ -8,12 +8,11 @@ const initialStage = {
   gameStage: STAGES[0],
   data,
   currentQuestion: 0,
-  score:0,
+  score: 0,
   answerSelected: false,
 };
 
 const quizReducer = (state, action) => {
-
   switch (action.type) {
     case "CHANGE_STAGE":
       return {
@@ -21,45 +20,48 @@ const quizReducer = (state, action) => {
         gameStage: STAGES[1],
       };
 
-      case "REORDER_QUESTIONS":
-        // eslint-disable-next-line no-case-declarations
-        const reorderedQuestions = state.data.sort(() => {
-          return Math.random() - 0.5;
+    case "REORDER_QUESTIONS":
+      // eslint-disable-next-line no-case-declarations
+      const reorderedQuestions = state.data.sort(() => {
+        return Math.random() - 0.5;
       });
       return {
         ...state,
-        data: reorderedQuestions, 
+        data: reorderedQuestions,
       };
 
-      case "CHANGE_QUESTION": {
-        const nexQuestion = state.currentQuestion + 1;
-        let endGame = false;
-  
-        if (!state.data[nexQuestion]) {
-          endGame = true;
-        }
+    case "CHANGE_QUESTION": {
+      const nexQuestion = state.currentQuestion + 1;
+      let endGame = false;
 
-        return{
-          ...state,
-          currentQuestion: nexQuestion, 
-          gameStage: endGame ? STAGES[2] : state.gameStage,
-        }} 
+      if (!state.data[nexQuestion]) {
+        endGame = true;
+      }
 
-      case  "NEW_GAME":
-        return initialStage;
+      return {
+        ...state,
+        currentQuestion: nexQuestion,
+        gameStage: endGame ? STAGES[2] : state.gameStage,
+      };
+    }
 
-      case "CHECK_ANSWER":
-        const answer = action.payload.answer;
-        const option = action.payload.option;
-        let correctAnswer = 0;
+    case "NEW_GAME":
+      return initialStage;
 
-        if (answer === option) correctAnswer = 1;
+    case "CHECK_ANSWER":
+      if (state.answerSelect) return state;
 
-        return{
-          ...state,
-          score: state.score + correctAnswer,
-          answerSelected: option
-        }
+      const answer = action.payload.answer;
+      const option = action.payload.option;
+      let correctAnswer = 0;
+
+      if (answer === option) correctAnswer = 1;
+
+      return {
+        ...state,
+        score: state.score + correctAnswer,
+        answerSelected: option,
+      };
 
     // eslint-disable-next-line no-fallthrough
     default:
