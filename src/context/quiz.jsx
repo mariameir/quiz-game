@@ -7,7 +7,7 @@ const initialStage = {
   data,
   currentQuestion: 0,
   score:0,
-  answerSlected: false,
+  answerSelected: false,
 };
 
 const quizReducer = (state, action) => {

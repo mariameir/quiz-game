@@ -12,10 +12,7 @@ export const Question = () => {
   const currentQuestion = quizState.data[quizState.currentQuestion];
 
   const onSelectOption = (option) =>{
-    dispatch({
-      type: "CHECK-_ANSWER", 
-      payload:{ answer: currentQuestion.option, option},
-    });
+    console.log(option)
   };
 
   return (
@@ -25,8 +22,10 @@ export const Question = () => {
       <div className="opcoes" id="options-container">
         {currentQuestion.options.map((option) => (
           // eslint-disable-next-line react/jsx-key
-          <Option option={option} key={option} answer = {currentQuestion.answer} selectOption={
-            () => onSelectOption(option) } />
+          <Option 
+          option={option} 
+          key={option} 
+          answer = {currentQuestion.answer} selectOption={() => onSelectOption(option) } />
         ))}
       </div>
       {quizState.answerSelected &&(
