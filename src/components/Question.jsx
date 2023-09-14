@@ -11,10 +11,12 @@ export const Question = () => {
   const [quizState, dispatch] = useContext(QuizContext);
   const currentQuestion = quizState.data[quizState.currentQuestion];
 
-  const selectOption = () =>{
-    console,log("asda");
-  }
-
+  const onSelectOption = (option) =>{
+    dispatch({
+      type: "CHECK-_ANSWER", 
+      payload:{ answer: currentQuestion.option, option},
+    });
+  };
 
   return (
     <div id="question">
@@ -23,7 +25,8 @@ export const Question = () => {
       <div className="opcoes" id="options-container">
         {currentQuestion.options.map((option) => (
           // eslint-disable-next-line react/jsx-key
-          <Option option={option} key={option} answer = {currentQuestion.answer} />
+          <Option option={option} key={option} answer = {currentQuestion.answer} selectOption={
+            () => onSelectOption(option) } />
         ))}
       </div>
       {quizState.answerSelected &&(
