@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-case-declarations */
 import { createContext, useReducer } from "react";
 import data from "../data/questions";
 
@@ -11,7 +13,6 @@ const initialStage = {
 };
 
 const quizReducer = (state, action) => {
-  console.log(state, action);
 
   switch (action.type) {
     case "CHANGE_STAGE":
@@ -47,7 +48,20 @@ const quizReducer = (state, action) => {
       case  "NEW_GAME":
         return initialStage;
 
+      case "CHECK_ANSWER":
+        const answer = action.payload.answer;
+        const option = action.payload.option;
+        let correctAnswer = 0;
 
+        if (answer === option) correctAnswer = 1;
+
+        return{
+          ...state,
+          score: state.score + correctAnswer,
+          answerSelected: option
+        }
+
+    // eslint-disable-next-line no-fallthrough
     default:
       return state;
   }

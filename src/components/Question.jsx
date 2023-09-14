@@ -12,7 +12,10 @@ export const Question = () => {
   const currentQuestion = quizState.data[quizState.currentQuestion];
 
   const onSelectOption = (option) =>{
-    console.log(option)
+    dispatch({
+      type:"CHECK_ANSWER",
+      payload:{ answer: currentQuestion.answer, option }
+    });
   };
 
   return (
